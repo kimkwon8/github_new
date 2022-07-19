@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>데이터 입출력</title>
+</head>
+<body>
+  <h1>데이터 입출력</h1>
+
+  <ul class="list">
+    <li class="list-item">HTML</li>
+    <li class="list-item">CSS</li>
+  </ul>
+
+  <button type="button" class="create">Create</button>
+  <button type="button" class="read">Read</button>
+  <button type="button" class="update">Update</button>
+  <button type="button" class="delete">Delete</button>
+
+  <div class="print"></div>
+
+  <script>
+    // Create
+    let createBtn = document.querySelector('.create');
+    createBtn.addEventListener('click', function(){
+      // 목록 항목 추가 대상
+      let list = document.querySelector('.list');
+
+      // 추가할 태그 생성
+      let listItem = document.createElement('li');
+
+      // 태그에 class 추가
+      listItem.classList.add('list-item');
+
+      // 태그에 Text 내용 추가
+      listItem.innerHTML = 'Javascript';
+
+      // 목록에 새로 생성한 항목 추가
+      list.appendChild(listItem);
+
+    });
+    
+    // Read
+    let readBtn = document.querySelector('.read');
+    readBtn.addEventListener('click', function(){
+      let listItem = document.querySelectorAll('.list-item');
+      let print = document.querySelector('.print');
+
+      print.innerHTML = '';
+
+      for(let i=0;i<listItem.length;i++){
+        print.innerHTML += listItem[i].innerHTML + ' ';
+      }
+
+    });
+
+    // update
+    let updateBtn = document.querySelector('.update');
+    updateBtn.addEventListener('click', function(){
+
+      let listItem = document.querySelectorAll('.list-item');
+
+      listItem[0].innerHTML = 'HTML5';
+
+    });
+
+    // Delete
+    let deleteBtn = document.querySelector('.delete');
+    deleteBtn.addEventListener('click', function(){
+
+      let list = document.querySelector('.list');
+      let listItem = document.querySelectorAll('.list-item');
+
+      list.removeChild(listItem[1]);
+
+    });
+  </script>
+</body>
+</html>
