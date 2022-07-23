@@ -461,4 +461,19 @@ p{
 - normal/bold
 - 단위없는 100단위 숫자 값 사용
 
--mbc
+#### Link Style
+
+- a 태그가 4가지 상태를 구분함
+- link, visited, hover, active
+
+```
+<a href="https://www.naver.com" class="link">naver</a>
+a:link{}             // : a태그의 상태 표시
+.link:visited{}
+a:hover{}
+a:active{}
+```
+
+### Layout styling
+
+- Element 영역
