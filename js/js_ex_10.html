@@ -53,12 +53,15 @@
     let createBtn = document.querySelector('.create');
     createBtn.addEventListener('click', function(){
       // 목록 항목 추가 대상
+      // class list를 list에 저장
       let list = document.querySelector('.list');
 
       // 목록 항목 요소
+      // class list-item을 전 항목을 listitem에 저장
       let listItem = document.querySelectorAll('.list-item');
 
       // 추가할 태그 생성
+      // 리스트를 추가 하여 newListItem에 저장
       let newListItem = document.createElement('li');
 
       // 태그에 class 추가
