@@ -24,7 +24,7 @@
       <span class="item-text">CSS</span>
     </li>
   </ol>
-
+ 
   <div>
     <input type="text" class="input-create">
     <button type="button" class="create">Create</button>
@@ -52,40 +52,32 @@
     // Create
     let createBtn = document.querySelector('.create');
     createBtn.addEventListener('click', function(){
-      // 목록 항목 추가 대상
-      // class list를 list에 저장
+      // list 클래스를 list 변수에 할당
       let list = document.querySelector('.list');
-
-      // 목록 항목 요소
-      // class list-item을 전 항목을 listitem에 저장
+      // li 클래스를 모든 것을 listItem 변수에 할당
       let listItem = document.querySelectorAll('.list-item');
-
-      // 추가할 태그 생성
-      // 리스트를 추가 하여 newListItem에 저장
+      // li 목록 리스트 생성
       let newListItem = document.createElement('li');
-
-      // 태그에 class 추가
+      // li 목록 리스트에 list-item이라는 class 추가
       newListItem.classList.add('list-item');
-
-      // input 접근/가져오기
+      //택스트의 class를 inputCreate 변수에 할당
       let inputCreate = document.querySelector('.input-create');
-
-      // span 태그에 번호 추가
+      // span Tag 생성해서 inputCreate 변수에 할당
       let itemNumber = document.createElement('span');
+      // inputCreate 변수의 Span에 Class를 item-number로 할당
       itemNumber.classList.add('item-number');
+      // itemNumber 변수의 HTML에 listItem 갯수 +1
       itemNumber.innerHTML = listItem.length + 1;
-
-      // span 태그에 text 내용 추가
+      // itemText 변수에 span을 생성
       let itemText = document.createElement('span');
+      // itemText span 함수에 item-text class를 추가
       itemText.classList.add('item-text');
+      //itemText의 HTML에 inputCreate class의 값을 할당
       itemText.innerHTML = inputCreate.value;
-
+      
       newListItem.appendChild(itemNumber);
       newListItem.appendChild(itemText);
-
-      // 목록에 새로 생성한 항목 추가
       list.appendChild(newListItem);
-
     });
     
     // Read
