@@ -54,3 +54,14 @@ codesandbox 원본 주소 : https://codesandbox.io/s/class06-3qikei
   - section-content : kebab case - id, class
   - sectionContent : camel case - js
   - SectionContent : pascal case - js의 Class
+
+## 동적/정적 용어
+
+- 정적(Static)
+  - 개발자가 직접 코딩 제어
+  
+- 동적(Dynamic)
+  - 프로그래밍 언어가 제어
+
+
+
