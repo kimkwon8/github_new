@@ -489,20 +489,22 @@ a:active{}
 - Element 배치
   - 배치 지정
     - 인접해있는 박스들의 관계
-    - 인접해있는 박스들 사이에 영향  
-  - 위치 지정 
+    - 인접해있는 박스들 사이에 영향
+  - 위치 지정
     - 박스의 위치를 단독으로 지정
+
 #### Box Model
 
 - Box Model 구성 요소
+
   - content(width/height), padding, border, margin
 
 - inline 요소에 box model 적용
   - width/height : 적용 안됨
   - margin : 위아래 적용 안됨, 좌우 적용됨
 
-
 ##### width/height
+
 - block 요소
   - width는 부모요소에 채워짐
   - height는 contents 또는 자식요소에 맞춰짐
@@ -518,6 +520,7 @@ a:active{}
 ##### padding
 
 - 안쪽 여백
+
 ```
 padding-top
 padding-right
@@ -536,7 +539,7 @@ padding:10px; => 4방향 공통 적용
 
 ##### margin
 
-- margin  사용 방법은 padding 동일함
+- margin 사용 방법은 padding 동일함
 
 - margin collapse(겹침/상쇄)
   - 인접한 박스의 margin이 상쇄되는 현상
@@ -571,9 +574,11 @@ background-attachment:fixed;
 ```
 
 - background-repeat
+
   - repeat(default), repeat-x, repeat-y, no-repeat
 
 - background-position
+
   - px
   - left, center, right
   - top, center, bottom
@@ -592,7 +597,8 @@ display:inline; /* block 요소가 inline 요소의 특성으로 화면에 표�
 display:block; /* inline 요소가 block 요소의 특성으로 화면에 표시 */
 display:inline-block; /* inline과 block의 특성을 모두 표시 : 나란히 표시, 박스모델 */
 ```
-### layout 배치 
+
+### layout 배치
 
 - float
 - flex
@@ -600,5 +606,42 @@ display:inline-block; /* inline과 block의 특성을 모두 표시 : 나란히 
 
 #### flexbox
 
+- HTML Element가 포함 관계로 구성
+- 부모요소에 flex 설정, 배치관련 속성들을 적용
 
+```
+<div class="flex-container>
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div>
 
+.flex-container {
+  display:flex;
+  flex-direction:column; /* 박스 배치 방향*/
+  flex-wrap:wrap; /* 박스 배치 줄바꿈 */
+  justify-content:center; /* 박스 배치 가로 정렬, 간격 조정*/
+  align-items:center; /*박스 배치 세로 정렬*/
+}
+```
+
+#### position
+
+- 박스 위치 단독 지정
+- top, right, bottom, left 위치 지정 속성과 같이 사용
+
+- relative
+
+  - 박스 원래 위치에서 좌표 크기만큼 이동
+  - 요소의 일반 흐름에서 제외되지 않음
+
+- absoulte
+
+  - position 속성이 적용된 가장 가까운 조상 요소를 기준으로 위치 지정
+  - 요소의 일반 흐름에서 제외됨
+  - 문서에서 제외되지 않음
+
+- fixed
+  - browser를 기준으로 위치 지정
+  - 요소의 일반 흐름에서 제외됨
+  - 문서에서 제외됨
