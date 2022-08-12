@@ -468,7 +468,8 @@ p{
 
 ```
 <a href="https://www.naver.com" class="link">naver</a>
-a:link{}             // : a태그의 상태 표시
+
+a:link{}
 .link:visited{}
 a:hover{}
 a:active{}
@@ -476,15 +477,15 @@ a:active{}
 
 ### Media Contents styling
 
-- Image, Vedie
+- Image, Video
   - Box Model 적용
   - 위치 지정
 
-### Layout styling
+### Layout stylilng
 
 - Element 영역
   - Block, Inline Element
-- Element 영역 styling
+- Element 영역 Styling
   - Box Model
 - Element 배치
   - 배치 지정
@@ -495,13 +496,44 @@ a:active{}
 
 #### Box Model
 
-- Box Model 구성 요소
+- Box Model 구성요소
 
   - content(width/height), padding, border, margin
 
 - inline 요소에 box model 적용
   - width/height : 적용 안됨
   - margin : 위아래 적용 안됨, 좌우 적용됨
+
+- 박스 크기 계산
+  - 박스 모델 구성요소(width/height + padding + border)의 크기 합 => 박스의 전체 크기
+
+Ex) width:300px, padding 4방향 모두 20px, border 4방향 1px, margin 4방향 10px
+=> 박스의 실제 크기 : 300 + 40 + 2 = 342px
+
+- box-sizing 속성
+  - width의 기준을 content 또는 전체크기 중에 선택
+
+```
+div{
+  width:300px;
+  padding:20px;
+  border:1px solid black;
+  box-sizing:content-box; /* default */
+}
+
+300 + 40 + 2 = 342px /* width:300px => content 영역의 크기 */
+
+div{
+  width:300px;
+  padding:20px;
+  border:1px solid black;
+  box-sizing:border-box;
+}
+
+x + 40 + 2 = 300px /* width:300px => box 전체 크기 */ 
+                   /* content 영역의 크기 : x = 300 - 40 - 2 */
+
+```
 
 ##### width/height
 
@@ -530,9 +562,9 @@ padding-left
 
 padding:10px 20px 30px 40px; => 4방향 각각 적용
 
-padding:10px 20px 30px; (2번째값:좌우 공통적용)
+padding:10px 20px 30px;(2번째값:좌우 공통 적용)
 
-padding:10px 20px; (1번째값:위아래 공통적용, 2번째값 : 좌우 공통적용)
+padding:10px 20px;(1번째값:위아래 공통적용, 2번째:좌우공통적용)
 
 padding:10px; => 4방향 공통 적용
 ```
@@ -542,7 +574,7 @@ padding:10px; => 4방향 공통 적용
 - margin 사용 방법은 padding 동일함
 
 - margin collapse(겹침/상쇄)
-  - 인접한 박스의 margin이 상쇄되는 현상
+  - 위아래에 인접한 박스의 margin이 상쇄되는 현상
   - 두 여백중 큰 쪽 여백만 적용
   - 좌우로 인접한 박스는 양쪽의 margin이 모두 적용되어 합쳐짐
 
@@ -551,12 +583,12 @@ padding:10px; => 4방향 공통 적용
 - 굵기, 모양, 색
 
 ```
-border: 1px solid red;
+border:1px solid red;
 
-border-top: 1px solid red;
-border-right: 1px solid red;
-border-bottom: 1px solid red;
-border-left: 1px solid red;
+border-top:1px solid red;
+border-right
+border-bottom
+border-left
 ```
 
 ##### background
@@ -582,7 +614,7 @@ background-attachment:fixed;
   - px
   - left, center, right
   - top, center, bottom
-  - 배경 이미지의 위치 지정은 이미지 반복이 안될 때 적용
+  - 배경이미지의 위치 지정은 이미지 반복이 안될 때 적용
 
 - background-attachment
   - 배경 이미지 고정
@@ -593,8 +625,8 @@ background-attachment:fixed;
 - 박스의 표시 속성을 변경해서 표시
 
 ```
-display:inline; /* block 요소가 inline 요소의 특성으로 화면에 표시 */
-display:block; /* inline 요소가 block 요소의 특성으로 화면에 표시 */
+display:inline; /* block 요소가 inline요소의 특성으로 화면에 표시 */
+display:block; /* inline 요소가 block요소의 특성으로 화면에 표시 */
 display:inline-block; /* inline과 block의 특성을 모두 표시 : 나란히 표시, 박스모델 */
 ```
 
@@ -610,18 +642,18 @@ display:inline-block; /* inline과 block의 특성을 모두 표시 : 나란히 
 - 부모요소에 flex 설정, 배치관련 속성들을 적용
 
 ```
-<div class="flex-container>
+<div class="flex-container">
   <div>1</div>
   <div>2</div>
   <div>3</div>
 </div>
 
-.flex-container {
+.flex-container{
   display:flex;
-  flex-direction:column; /* 박스 배치 방향*/
+  flex-direction:column; /* 박스 배치 방향 */
   flex-wrap:wrap; /* 박스 배치 줄바꿈 */
-  justify-content:center; /* 박스 배치 가로 정렬, 간격 조정*/
-  align-items:center; /*박스 배치 세로 정렬*/
+  justify-content:center; /* 박스 배치 가로 정렬,간격 */
+  align-items:center; /* 박스 배치 세로 정렬 */
 }
 ```
 
@@ -635,9 +667,9 @@ display:inline-block; /* inline과 block의 특성을 모두 표시 : 나란히 
   - 박스 원래 위치에서 좌표 크기만큼 이동
   - 요소의 일반 흐름에서 제외되지 않음
 
-- absoulte
+- absolute
 
-  - position 속성이 적용된 가장 가까운 조상 요소를 기준으로 위치 지정
+  - position 속성이 적용된 가장 가까운 조상요소를 기준으로 위치 지정
   - 요소의 일반 흐름에서 제외됨
   - 문서에서 제외되지 않음
 
@@ -657,9 +689,9 @@ display:inline-block; /* inline과 block의 특성을 모두 표시 : 나란히 
 
 - 다양한 디바이스의 화면에 컨텐츠, 레이아웃이 잘 보이도록 스타일 구현
 - OSMU(One Source Multi Use)
-  - 하나의 HTML source 여러개의 css source
+  - 하나의 HTML source 여러 개의 css source
 
-### 뷰 포트
+### 뷰포트
 
 - 모바일 디바이스 화면에 웹 페이지 컨텐츠나 레이아웃이 잘 보일 수 있도록 하는 기능
 - 뷰포트가 없을 때는 PC에 최적화된 레이아웃이 모바일 디바이스 화면에 보이게 됨
@@ -667,35 +699,80 @@ display:inline-block; /* inline과 block의 특성을 모두 표시 : 나란히 
 ### 미디어 쿼리
 
 - 특정 조건(상황)에 맞는지 비교
-- 특정 조건에 맞으면 포함되어 있는 css 코드 블럭을 실행
+- 특정 조건에 맞으면 포함되어 있는 CSS 코드 블럭을 실행
 
 ```
 @media screen and (max-width:600px){}
 @media screen and (min-width:600px){}
 
-mas-width:600px => 600px 보다 작은 범위
-min-width:600px => 600px 보다 큰 범위
+max-width:600px => 600px보다 작은 범위
+min-width:600px => 600px보다 큰 범위
 ```
 
 디바이스 스크린의 해상도는 가로 해상도를 기준
 
-- Pc Monitor
-  - 1920px X 1080px : Full HD (1K)
-  - 3840px X 2160px : (4K)
-  - 1280 X 720(1024)
-  - 1024 X 768
+- PC Monitor
 
-- Teblet (세로모드를 따지는 경우가 많음)
-  - 1920 X 1080
-  - 1280 X 720
-  - 1024 X 768
+  - 1920px x 1080px : Full HD(1K)
+  - 3840px x 2160px : 4K
+  - 1280 x 720(1024)
+  - 1024 x 768
+
+- Tablet
+
+  - 1920 x 1080
+  - 1280 x 720
+  - 1024 x 768
 
 - Phone
-  - 400 X 800
-  - 320 X 640
-  - 
+
+  - 400 x 800
+  - 320 x 640
 
 - Breakpoint
   - 화면 크기에 따라 CSS가 다르게 적용되는 해상도 지점
   - 위 해상도 사례에서 1024, 720, 320 해상도가 breakpoint로 선택될 수 있음
- 
+
+
+## color 값
+
+CSS에서 사용할 수 있는 color 값
+- red, blue, black
+- #a1eb35 : 16진수 값
+- rgb(0~255, 0~255, 0~255) : 10진수 값
+
+```
+컴퓨터에서 사용하는 진수:2진수
+2진수 데이터 : 01101110
+
+bit : 2진수 1자리 저장(표현)공간 / 컴퓨터 데이터의 최소 단위
+8bit = 1byte : 정보 표현의 최소단위 / 표현가능 개수 : 2^8 = 256
+
+RGB : Red, Green, Blue - 화면(screen) / 가산 혼합
+CMYK : Cyan, Magenta, Yellow, Black - 인쇄 / 감산 혼합
+
+Red(1byte), Green(1byte), Blue(1byte) => 24bit 트루컬러(2^24)
+
+16진수(0~9, a,b,c,d,e,f)
+2진수 4bit => 16진수 1bit
+24자리 2진수 => 6자리 16진수
+Ex) #1a3cff, #555555 => #555, #55ffdd => #5fd
+
+cf) #ffffff : white / #000000 : black / #555555, #f9f9f9 : grey
+
+10진수
+함수 사용 : rgb(red, green, blue)
+10진수 범위 : 0~255
+
+Ex) rgb(100, 230, 58)
+```
+
+## image format
+
+비트맵
+- 확대하면 깨짐
+- jpg(색표현), gif(투명배경, 애니메이션), png(투명배경)
+
+벡터
+- 확대해고 안깨짐
+- svg

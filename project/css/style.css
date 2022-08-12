@@ -21,7 +21,8 @@ time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;
+  vertical-align: baseline;
+  box-sizing:border-box;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -29,7 +30,8 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	/* line-height: 1; */
+  /* line-height: 1; */
+  font-family: 'Montserrat', sans-serif;
 }
 ol, ul {
 	list-style: none;
@@ -47,40 +49,42 @@ table {
 	border-spacing: 0;
 }
 
-
 /* font-family: 'Montserrat', sans-serif;
 font-family: 'Noto Sans KR', sans-serif; */
+
 /* page css */
+
 .header{
-  display: flex;
+  display:flex;
   justify-content: space-between;
-  padding:30px 100px;
+  padding:30px 100px 0;
 }
+
 .gnb-list{
-  display: flex;
+  display:flex;
 }
+
+.gnb-list-item{
+  height:60px;
+  margin-left:60px;
+  position:relative;
+}
+
 .gnb-list-link{
   font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  color: black;
-  text-decoration: none;
-}
-a:hover{
-  color: hotpink;
-}
-.gnb-list-item{
-  position: relative;
-  margin-left: 60px;
+  font-size:13px;
+  font-weight:600;
+  color:black;
+  text-decoration:none;
 }
 
 .gnb-depth2{
-  position: absolute;
-  background-color: #f9f9f9;
-  padding: 0 10px;
-  border: 1px solid #333;
-  top: 59px;
-  display: none;
+  position:absolute;
+  background:#f9f9f9;
+  padding:0 10px;
+  border:1px solid #333;
+  top:45px;
+  display:none;
 }
 
 .gnb-depth2.active{
@@ -88,20 +92,168 @@ a:hover{
 }
 
 .gnb-depth2-item{
-  margin: 10px 0;
+  margin:10px 0;
 }
 
 .gnb-depth2-item > a{
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  color: #555555;
-  text-decoration: none;
+  color:#555555;
+  text-decoration:none;
+}
+
+.hamburger{
+  display:none;
 }
 
 .main-slogan{
-  font-family: 'Noto Sans KR', sans-serif;
-  font-size: 20px;
-  height: 300px;
-  background: #f5f5f5;
+  height:300px;
+  background:#f5f5f5;
+  padding-top:100px;
+  box-sizing:border-box;
+}
 
+.section-heading{
+  font-size:38px;
+  color:#171717;
+  font-weight:600;
+  text-align:center;
+}
+
+.section-paragraph{
+  width:500px;
+  text-align:center;
+  margin:auto; /* margin:0 auto */
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size:15px;
+}
+
+.mt20{
+  margin-top:20px;
+}
+
+.image-group{
+  display:flex;
+  justify-content: center;
+}
+
+.image-item{
+  width:340px;
+  display:block;
+}
+
+.image-wrap{
+  width:340px;
+  height:256px;
+  overflow:hidden;
+  position:relative;
+}
+
+.image-item.video{
+  width:466px; /* width:auto */
+  height:256px;
+  /* position을 사용한 가운데 배치 */
+  position:absolute;
+  top:50%;
+  left:50%;
+  margin-top:-128px;
+  margin-left:-233px;
+}
+
+.footer{
+  height:280px;
+  background:#141414;
+  color:white;
+  display:flex;
+  justify-content:space-between;
+  padding:100px 100px 0;
+}
+
+.company,
+.right{
+  display:block;
+}
+
+.sns-link{
+  color:white;
+  text-decoration:none;
+}
+
+@media screen and (max-width:1400px){
+  .image-group{
+    flex-wrap:wrap;
+    width:680px;
+    margin:auto;
+  }
+}
+
+@media screen and (max-width:700px){
+  .header{
+    padding:20px;
+  }
+  .gnb{
+    position:fixed;
+    width:300px;
+    height:500px;
+    background:white;
+    top:69px;
+    right:0;
+    padding:30px;
+    border:1px solid #ddd;
+    display:none;
+  }
+  .gnb.active{
+    display:block;
+  }
+
+  .gnb-list{
+    display:block;
+  }
+  .gnb-list-item{
+    height:auto;
+    margin-bottom:20px;
+    margin-left:0;
+  }
+  .gnb-depth2{
+    position:static;
+    display:block;
+    margin-top:20px;
+    border:1px solid #ddd;
+  }
+  .hamburger{
+    display:block;
+    width:31px;
+    height:25px;
+    background:none;
+    border:none;
+    padding:0;
+  }
+
+  .hamburger>img{ /* class hamburger 요소에 포함된 img 자식요소 */
+    width:100%;
+    height:100%;
+  }
+  .section-heading{
+    font-size:24px;
+  }
+  .section-paragraph{
+    width:auto;
+  }
+  .image-group{
+    width:340px;
+  }
+
+  .footer{
+    height:auto;
+    padding:20px;
+    display:block;
+  }
+}
+
+@media screen and (max-width:360px){
+  .image-group{
+    width:auto;
+  }
+
+  .image-item{
+    width:100%;
+  }
 }
