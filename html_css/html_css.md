@@ -501,6 +501,7 @@ a:active{}
   - content(width/height), padding, border, margin
 
 - inline 요소에 box model 적용
+
   - width/height : 적용 안됨
   - margin : 위아래 적용 안됨, 좌우 적용됨
 
@@ -530,7 +531,7 @@ div{
   box-sizing:border-box;
 }
 
-x + 40 + 2 = 300px /* width:300px => box 전체 크기 */ 
+x + 40 + 2 = 300px /* width:300px => box 전체 크기 */
                    /* content 영역의 크기 : x = 300 - 40 - 2 */
 
 ```
@@ -733,10 +734,10 @@ min-width:600px => 600px보다 큰 범위
   - 화면 크기에 따라 CSS가 다르게 적용되는 해상도 지점
   - 위 해상도 사례에서 1024, 720, 320 해상도가 breakpoint로 선택될 수 있음
 
-
 ## color 값
 
 CSS에서 사용할 수 있는 color 값
+
 - red, blue, black
 - #a1eb35 : 16진수 값
 - rgb(0~255, 0~255, 0~255) : 10진수 값
@@ -770,9 +771,11 @@ Ex) rgb(100, 230, 58)
 ## image format
 
 비트맵
+
 - 확대하면 깨짐
 - jpg(색표현), gif(투명배경, 애니메이션), png(투명배경)
 
 벡터
+
 - 확대해고 안깨짐
 - svg
