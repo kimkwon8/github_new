@@ -58,6 +58,8 @@ font-family: 'Noto Sans KR', sans-serif; */
   display:flex;
   justify-content: space-between;
   padding:30px 100px 0;
+  position: relative;
+  z-index: 1;
 }
 
 .gnb-list{
