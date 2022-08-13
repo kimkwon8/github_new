@@ -779,3 +779,26 @@ Ex) rgb(100, 230, 58)
 
 - 확대해고 안깨짐
 - svg
+
+## 투명도
+
+- opacity
+- transparent
+- appha
+
+```
+div{
+  background: transparent;
+}
+
+div{
+  color: rgba(100, 59, 240, 0.5); /* 0.0 ~ 1.0 */
+}
+
+div{
+  opacity: 0.5; /* 0.0 ~ 1.0 */
+}
+```
+
+- transparent, rgba() 값으로 사용하기 떄문에 색만 투명하게 적용
+- opacity 속성이기 때문에 HTML Element 자체를 투명하게 적용
